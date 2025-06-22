@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "ai-dataparser"
+version = "0.1"
+description = ""
+authors = ["Jenny Lin <lintianshu2011@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+llama-index = "^0.12.43"
+langchain = "^0.3.26"
+openai = "^1.90.0"
+pandas = "^2.3.0"
+pydantic = "^2.11.7"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
