@@ -218,7 +218,7 @@ except Exception as e:
 
 - **Concurrent Workers**: Start with `max_workers=3`, adjust based on API limits
 - **Batch Size**: Process large datasets in chunks if memory is limited
-- **Model Selection**: Use `gpt-4o-mini` for cost efficiency, `gpt-4` for better quality
+- **Model Selection**: Use `gpt-4o-mini` for cost efficiency, `gpt-4o` for better quality
 
 ## 📚 Learning Objectives
 
