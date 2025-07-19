@@ -28,7 +28,7 @@ The project processes customer service call transcripts and extracts structured 
 
 ## 🛠️ Setup Instructions
 
-### Option 1: Using Virtual Environment (Recommended)
+### Using Virtual Environment 
 
 ```bash
 # Clone or download the project
@@ -48,29 +48,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Option 2: Using Poetry (If Available)
-
-```bash
-# Clone the project
-git clone <repository-url>
-cd ai-dataparser
-
-# Install dependencies with Poetry
-poetry install
-
-# Activate Poetry shell
-poetry shell
-```
-
-### Option 3: Using uv (If Available)
-
-```bash
-# Clone the project
-git clone <repository-url>
-cd ai-dataparser
-
-# Install dependencies with uv
-uv pip install -r requirements.txt
 ```
 
 ## 🔑 Environment Setup
