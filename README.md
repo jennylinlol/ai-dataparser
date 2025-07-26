@@ -114,7 +114,7 @@ result = chain.invoke({"call_transcript": call_transcript})
 ```
 
 **How it works:**
-1. **PydanticOutputParser**: Converts Pydantic model to JSON schema
+1. **PydanticOutputParser**:Generate structured output
 2. **Chain Composition**: Uses `|` operator to connect prompt → LLM → parser
 3. **Format Instructions**: Automatically adds JSON schema to prompt
 4. **Validation**: Parser validates LLM output against Pydantic model
