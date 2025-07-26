@@ -55,6 +55,8 @@ pip install -r requirements.txt
 1. Create a `.env` file in the project root:
 ```bash
 touch .env
+Powershell
+New-Item -Path .env -ItemType File -Force
 ```
 
 2. Add your OpenAI API key to the `.env` file:
