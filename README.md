@@ -53,10 +53,11 @@ pip install -r requirements.txt
 ## 🔑 Environment Setup
 
 1. Create a `.env` file in the project root:
-```bash
-touch .env
-Powershell
-New-Item -Path .env -ItemType File -Force
+```
+On Linux/macOS:
+    touch .env
+On Windows (PowerShell):
+    New-Item -Path .env -ItemType File -Force
 ```
 
 2. Add your OpenAI API key to the `.env` file:
@@ -129,6 +130,9 @@ program = OpenAIPydanticProgram.from_defaults(
     output_cls=CallAnalysis,
     prompt_template_str=prompt_template_str,
     verbose=True,
+    # You can also pass model_name and temperature here if needed
+    # model_name="gpt-4o-mini",
+    # temperature=0,
 )
 
 # Use program
@@ -143,15 +147,27 @@ result = program(call_transcript=call_transcript)
 
 ### 4. Concurrency Implementation
 
-Both approaches use `ThreadPoolExecutor` for parallel processing:
 
+Both approaches use `ThreadPoolExecutor` for parallel processing. Note the function names differ:
+
+**LangChain:**
 ```python
 with ThreadPoolExecutor(max_workers=3) as executor:
     futures = [
         executor.submit(process_single_transcript, row, llm, parser, prompt)
         for _, row in df.iterrows()
     ]
-    
+    for future in futures:
+        success_result, error_result = future.result()
+```
+
+**LlamaIndex:**
+```python
+with ThreadPoolExecutor(max_workers=3) as executor:
+    futures = [
+        executor.submit(process_single_transcript_llamaindex, row, program)
+        for _, row in df.iterrows()
+    ]
     for future in futures:
         success_result, error_result = future.result()
 ```
@@ -219,6 +235,13 @@ This is an educational project. Feel free to:
 - Enhance documentation
 
 ## 📄 License
+
+---
+
+### Additional Notes
+
+- **Prompt Differences:** Even with the same prompt text, LangChain and LlamaIndex may format prompts/messages differently (e.g., system/user roles, format instructions), which can affect model output.
+- **Model and Temperature Configuration:** Both frameworks allow you to set the model and temperature. You can pass these as arguments when initializing the LLM or program in your code.
 
 This project is for educational purposes. Please ensure you comply with OpenAI's usage policies when using their API.
 
