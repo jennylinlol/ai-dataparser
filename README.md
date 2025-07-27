@@ -53,7 +53,7 @@ pip install -r requirements.txt
 ## 🔑 Environment Setup
 
 1. Create a `.env` file in the project root:
-```
+```bash
 On Linux/macOS:
     touch .env
 On Windows (PowerShell):
